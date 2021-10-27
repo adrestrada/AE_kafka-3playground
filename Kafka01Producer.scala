@@ -16,7 +16,7 @@ object Kafka01Producer extends App {
     producerProperties.setProperty(VALUE_SERIALIZER_CLASS_CONFIG, classOf[StringSerializer].getName)
 
     val producer = new KafkaProducer[String, String](producerProperties)
-    val dataSource = Source.fromFile("/users/valeria/STMdata/trips.txt")
+    val dataSource = Source.fromFile("/local/trips.txt")
     dataSource
       .getLines().slice(1, 51)
       .foreach(line => {
